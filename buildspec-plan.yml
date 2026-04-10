@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - cd terraform
+      - terraform init
+      - terraform plan -out=tfplan
+
+artifacts:
+  files:
+    - terraform/tfplan
