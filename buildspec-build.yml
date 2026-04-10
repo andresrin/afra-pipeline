@@ -4,16 +4,12 @@ phases:
   install:
     commands:
       - echo Installing dependencies...
-      - yum update -y
-      - yum install -y unzip curl
+      - apt-get update
+      - apt-get install -y unzip curl
       - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
-      - unzip terraform.zip
-      - mv terraform /usr/local/bin/
+      - unzip -o terraform.zip
+      - mv -f terraform /usr/local/bin/
 
   build:
     commands:
-      - echo Build phase completed
-
-artifacts:
-  files:
-    - '**/*'
+      - terraform version
